@@ -1,0 +1,69 @@
+/* Footer */
+#tempaltemo_footer {
+    background-color: #212934;
+}
+
+#tempaltemo_footer h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#tempaltemo_footer .logo {
+    color: #59ab6e;
+}
+
+#tempaltemo_footer .list-unstyled li {
+    margin-bottom: 10px;
+}
+
+#tempaltemo_footer .list-unstyled a {
+    color: #cfd6e1;
+    text-decoration: none;
+}
+
+#tempaltemo_footer .list-unstyled a:hover {
+    color: #68bb7d;
+}
+
+#tempaltemo_footer .border-top {
+    border-top: 1px solid #cfd6e1;
+}
+
+#tempaltemo_footer .footer-icons .list-inline-item {
+    margin-right: 10px;
+}
+
+#tempaltemo_footer .footer-icons i {
+    font-size: 24px;
+}
+
+#subscribeEmail {
+    border: 1px solid #e8e8e8;
+}
+
+#tempaltemo_footer .btn-success {
+    background-color: #59ab6e;
+    border-color: #56ae6c;
+}
+
+#tempaltemo_footer p {
+    font-size: 14px;
+}
+
+#tempaltemo_footer a {
+    color: #dcdde1;
+    text-decoration: none;
+}
+
+#tempaltemo_footer a:hover {
+    color: #68bb7d;
+}
+
+#tempaltemo_footer .bg-black {
+    background-color: #1d242d;
+}
+
+#tempaltemo_footer .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}

@@ -1,0 +1,43 @@
+<div class="body">
+	<div class="main">
+	  <input type="checkbox" id="chk" aria-hidden="true">
+  
+	  <div class="signup">
+		<form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+			<label for="chk" aria-hidden="true">Sign up</label>
+			<input type="text" formControlName="userName" name="nom" placeholder="User name" required="" (ngModel)="nom">
+			<div class="err" *ngIf="signupForm.get('userName')?.hasError('required') && signupForm.get('userName')?.touched">
+			  User name is required.
+			</div>
+	
+			<input type="email" formControlName="email" name="email"placeholder="Email" required=""(ngModel)="email">
+			<div  class="err" *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched">
+			  Email is required.
+			</div>
+			<div  class="err" *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched">
+			  Please enter a valid email address.
+			</div>
+	
+			<input type="password" formControlName="password" name="password" placeholder="Password" required="" (ngModel)="password">
+			<div  class="err" *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">
+			  Password is required.
+			</div>
+			<div  class="err" *ngIf="signupForm.get('password')?.hasError('invalidPassword') && signupForm.get('password')?.touched">
+			  Password must contain at least one letter, one digit, and be at least 4 characters long.
+			</div>
+	
+			<button type="submit">Sign up</button><br>
+		  </form>
+	  </div>
+  
+	  <div class="login">
+		<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+		  <label for="chk" aria-hidden="true">Login</label>
+		  <input type="email" formControlName="email" placeholder="Email" required="">
+		  <input type="password" formControlName="password" placeholder="Password" required="">
+		  <button type="submit">Login</button>
+		</form>
+	  </div>
+	</div>
+  </div>
+  

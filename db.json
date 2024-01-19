@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "responsable": [
+    {
+      "id": 1,
+      "nom": "heni",
+      "email": "oussema.heni44@gmail.com",
+      "password": "henix&12345"
+    },
+    
+    {
+      "nom": "bbb rached",
+      "email": "prosib25@gmail.com",
+      "password": "azeazsd225",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
