@@ -13,15 +13,23 @@
       "email": "oussema.heni44@gmail.com",
       "password": "henix&12345"
     },
-    
     {
       "nom": "bbb rached",
       "email": "prosib25@gmail.com",
       "password": "azeazsd225",
       "id": 2
+    },
+    {
+      "nom": "oussema",
+      "email": "oussema.heni44@gmail.com",
+      "password": "oussemak1234",
+      "id": 3
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "Personne": {
+    "id": 1,
+    "nom": "heni",
+    "email": "oussema.heni44@gmail.com",
+    "password": "henix&12345"
   }
 }

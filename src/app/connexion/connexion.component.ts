@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from '../services/sign-in.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-connexion',
@@ -12,7 +13,7 @@ export class ConnexionComponent {
   signupForm: FormGroup;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private signinService: SignInService, private router: Router) {
+  constructor(private loginService: LoginService,private fb: FormBuilder, private signinService: SignInService, private router: Router) {
 
     // Initialize signup form
     this.signupForm = this.fb.group({
@@ -63,13 +64,21 @@ export class ConnexionComponent {
   
 
   // Function to handle login form submission
+  email_Login: string = ""; 
+  password_Login: string = "";
   onLogin() {
-    if (this.loginForm.valid) {
-      // Your logic for login
-      console.log('Login form submitted:', this.loginForm.value);
-    } else {
-      // Display error message or take appropriate action
-      console.log('Invalid login form');
-    }
+    const email_Login = this.email_Login;
+    const password_Login = this.password_Login;
+
+    this.loginService.login(email_Login,password_Login)
+      .subscribe(response => {
+        localStorage.setItem('user',response.email)
+        alert('bienvenu')
+
+        this.router.navigate(['/']);
+
+      }, error => {
+        alert('login failed');
+      });
   }
 }

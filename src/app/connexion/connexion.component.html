@@ -33,8 +33,8 @@
 	  <div class="login">
 		<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 		  <label for="chk" aria-hidden="true">Login</label>
-		  <input type="email" formControlName="email" placeholder="Email" required="">
-		  <input type="password" formControlName="password" placeholder="Password" required="">
+		  <input type="email" formControlName="email" placeholder="Email" required=""(ngModel)="email_Login">
+		  <input type="password" formControlName="password" placeholder="Password" required=""(ngModel)="password_Login">
 		  <button type="submit">Login</button>
 		</form>
 	  </div>

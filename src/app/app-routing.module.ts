@@ -7,7 +7,7 @@ import { FormulaireComponent } from './formulaire/formulaire.component';
 
 const routes: Routes = [{path:'formulaire',component:FormulaireComponent},
   {path:'connexion',component:ConnexionComponent},
-  {path:'**',component:HomeComponent}
+  {path:'',component:HomeComponent}
 
 ];
 
