@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [formGroup]="form">
     <div style="text-align:center">
       <h2>Contact Us</h2>
       <p>Passez nous voir pour une tasse de café ou laissez-nous un message:</p>
@@ -8,19 +8,16 @@
         <img src="https://www.w3schools.com/w3images/map.jpg" style="width:100%">
       </div>
       <div class="column">
-        <form action="/action_page.php">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-          <label for="country">Country</label>
-          <select id="country" name="country">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-          </select>
+        <form action="javascript:void(0)"(submit)="send()" >
+          <label for="fname"> Name</label>
+          <input type="text" id="fname" name="name" formControlName="form_name" placeholder="Votre nom..">
+          <label for="lname">email</label>
+          <input type="text" id="lname" name="email" formControlName="form_email"placeholder="Votre email..">
+          
           <label for="subject" >Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+          <input type="text" id="lname" name="email" formControlName="subject"formControlName="subject"placeholder="subject..">
+          <label for="message" >message</label>
+          <textarea id="message" name="message"formControlName="message" placeholder="écrire ici.." style="height:170px"></textarea>
           <input type="submit" value="Submit" class="btn btn-success">
         </form>
       </div>
