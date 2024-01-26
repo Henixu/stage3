@@ -18,4 +18,7 @@ export class HeaderComponent {
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
+  message():void{
+    alert("il faut connecter dabord");
+  }
 }

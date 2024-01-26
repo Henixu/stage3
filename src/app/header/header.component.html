@@ -38,7 +38,12 @@
                         <a class="nav-link" routerLink="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a *ngIf="isLoggedIn()" class="nav-link" routerLink="/formulaire">Formulaire</a>
+                        <ng-container *ngIf="isLoggedIn(); else disabledLink">
+                            <a class="nav-link" routerLink="/formulaire">Formulaire</a>
+                          </ng-container>
+                          <ng-template #disabledLink>
+                            <a class="nav-link "(click)="message();" style="color: grey;">Formulaire</a>
+                          </ng-template>
                     </li>
                    
                     
