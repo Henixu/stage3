@@ -25,6 +25,6 @@ async send(){
     form_email: this.form.value.form_email,
     message: this.form.value.message,
     });
-    alert("message est envoyer ");
+    alert("votre message est bien envoyer ");
   }
 }

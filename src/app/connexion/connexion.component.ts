@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from '../services/sign-in.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -13,7 +13,7 @@ export class ConnexionComponent {
   signupForm: FormGroup;
   loginForm: FormGroup;
 
-  constructor(private loginService: LoginService,private fb: FormBuilder, private signinService: SignInService, private router: Router) {
+  constructor(private loginService: LoginService,private fb: FormBuilder, private authService: AuthService,private signinService: SignInService, private router: Router) {
 
     // Initialize signup form
     this.signupForm = this.fb.group({
@@ -74,6 +74,7 @@ export class ConnexionComponent {
       .subscribe(response => {
         localStorage.setItem('user',response.email)
         alert('bienvenu')
+        this.authService.login();
 
         this.router.navigate(['/']);
 
