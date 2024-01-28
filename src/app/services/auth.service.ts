@@ -13,12 +13,12 @@ export class AuthService {
   }
 
   login() {
-    // Implement your login logic here
+   
     this.isLoggedInVar = true;
   }
 
   logout() {
-    // Implement your logout logic here
+    
     this.isLoggedInVar = false;
   }
 }

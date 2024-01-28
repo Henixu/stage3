@@ -14,24 +14,27 @@ export class LoginService {
 
   userExists(email: string): Observable<boolean> {
     return this.http.get<any[]>(this.personnesUrl).pipe(
-      map(personnes => {
-        const foundPerson=personnes.find(person => person.email === email );
-        return !!foundPerson; // Returns true if email exists,false otherwise
-      })
+        map(personnes => {
+            const foundPerson = personnes.find(person => person.email === email);
+            return !!foundPerson; // Returns true if email exists, false otherwise
+        })
     );
-  }
+}
 
-  login(email: string, password: string): Observable<any> {
+login(email: string, password: string): Observable<any> {
+    if (!email || !password) {
+        return of({ error: 'Email and password are required' });
+    }
+
     return this.userExists(email).pipe(
-      switchMap(userExists => {
-        if (userExists) {
-          const loginUrl = `${this.baseUrl}/login`;
-          return this.http.post(loginUrl,{email,password});
-        } else{
-         
-          return of({error: 'User does not exist'});
-        }
-      })
+        switchMap(userExists => {
+            if (userExists) {
+                const loginUrl = `${this.baseUrl}/responsable`;
+                return this.http.post(loginUrl, { email, password });
+            } else {
+                return of({ error: 'User does not exist' });
+            }
+        })
     );
-  }
+}
 }

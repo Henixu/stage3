@@ -4,6 +4,7 @@ import { SignInService } from '../services/sign-in.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { AuthService } from '../services/auth.service';
+
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -13,8 +14,13 @@ export class ConnexionComponent {
   signupForm: FormGroup;
   loginForm: FormGroup;
 
-  constructor(private loginService: LoginService,private fb: FormBuilder, private authService: AuthService,private signinService: SignInService, private router: Router) {
-
+  constructor(
+    private loginService: LoginService,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private signinService: SignInService,
+    private router: Router
+  ) {
     // Initialize signup form
     this.signupForm = this.fb.group({
       userName: ['', Validators.required],
@@ -28,24 +34,27 @@ export class ConnexionComponent {
       password: ['', [Validators.required, this.passwordValidator]]
     });
   }
-  email: string = "";
-  password: string = "";
-  nom: string = "";
-  onSignUp():void{
-   
 
-  const nom = this.signupForm.get('userName')!.value;
-  const email = this.signupForm.get('email')!.value;
-  const password = this.signupForm.get('password')!.value;
-    console.log(this.nom,this.email,this.password);
-    this.signinService.register(nom,email,password)
-      .subscribe(response => {
-        alert('sign in success');
-        console.log(response);
-      }, error => {
-        alert('register failed')   
-      });
+  onSignUp(): void {
+    if (this.signupForm.valid) {
+      const { userName, email, password } = this.signupForm.value;
+      console.log(userName, email, password);
+
+      this.signinService.register(userName, email, password)
+        .subscribe(
+          response => {
+            alert('Sign up success');
+            console.log(response);
+          },
+          error => {
+            alert('Sign up failed');
+          }
+        );
+    } else {
+      alert('Invalid form. Please check the fields.');
+    }
   }
+
   // Custom password validator
   passwordValidator(control: any) {
     const value = control.value;
@@ -60,26 +69,24 @@ export class ConnexionComponent {
     return isValid ? null : { invalidPassword: true };
   }
 
-  // Function to handle signup form submission
-  
+  onLogin(): void {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
 
-  // Function to handle login form submission
-  email_Login: string = ""; 
-  password_Login: string = "";
-  onLogin() {
-    const email_Login = this.email_Login;
-    const password_Login = this.password_Login;
-
-    this.loginService.login(email_Login,password_Login)
-      .subscribe(response => {
-        localStorage.setItem('user',response.email)
-        alert('bienvenu')
-        this.authService.login();
-
-        this.router.navigate(['/']);
-
-      }, error => {
-        alert('login failed');
-      });
+      this.loginService.login(email, password)
+        .subscribe(
+          response => {
+            localStorage.setItem('user', response.email);
+            alert('Welcome');
+            this.authService.login();
+            this.router.navigate(['/']);
+          },
+          error => {
+            alert('Login failed');
+          }
+        );
+    } else {
+      alert('Invalid form. Please check the fields.');
+    }
   }
 }
