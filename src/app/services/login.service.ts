@@ -29,8 +29,7 @@ login(email: string, password: string): Observable<any> {
     return this.userExists(email).pipe(
         switchMap(userExists => {
             if (userExists) {
-                const loginUrl = `${this.baseUrl}/responsable`;
-                return this.http.post(loginUrl, { email, password });
+                return of('User  exist');
             } else {
                 return of({ error: 'User does not exist' });
             }

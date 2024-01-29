@@ -14,65 +14,22 @@
       "password": "henix&12345"
     },
     {
-      "nom": "bbb rached",
+      "nom": "rached",
       "email": "prosib25@gmail.com",
       "password": "azeazsd225",
       "id": 2
     },
     {
-      "nom": "oussema",
-      "email": "oussema.heni44@gmail.com",
-      "password": "oussemak1234",
-      "id": 3
-    },
-    {
       "nom": "nabil",
       "email": "nabilabidi@gmail.com",
       "password": "n12345",
+      "id": 3
+    },
+    {
+      "nom": "izdin",
+      "email": "izdin@gmail.com",
+      "password": "aa1234",
       "id": 4
-    },
-    {
-      "nom": "heni oussema",
-      "email": "oussema.heni44@gmail.com",
-      "password": "aaa44",
-      "id": 5
-    },
-    {
-      "nom": "",
-      "email": "",
-      "password": "",
-      "id": 6
-    },
-    {
-      "nom": "heni oussema",
-      "email": "oussema.heni44@gmail.com",
-      "password": "aaa445",
-      "id": 7
-    },
-    {
-      "email": "oussema.heni44@gmail.com",
-      "password": "henix&12345",
-      "id": 8
-    },
-    {
-      "email": "nabilabidi@gmail.com",
-      "password": "n12345",
-      "id": 9
-    },
-    {
-      "email": "nabilabidi@gmail.com",
-      "password": "n12345",
-      "id": 10
-    },
-    {
-      "email": "nabilabidi@gmail.com",
-      "password": "n1234",
-      "id": 11
-    },
-    {
-      "email": "nabilabidi@gmail.com",
-      "password": "n12345",
-      "id": 12
     }
   ],
   "Personne": {
