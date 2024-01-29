@@ -20,20 +20,24 @@ import { AuthService } from '../services/auth.service';
 
       const formData = new FormData(formElement);
       const formFields: string[] = [];
-      formData.forEach((value, key) => {
-        formFields.push(`${key}: ${value}`);
-      });
+      // Parse the text content into an object
+    const formDataObject: { [key: string]: string } = {};
+    formData.forEach((value, key) => {
+      formDataObject[key] = value.toString();
+    });
 
-      const textContent = formFields.join('\n');
+    // Convert the object into an XML string
+    const xmlString = this.objectToXml(formDataObject);
 
-      // Create a Blob containing the text content
-      const blob = new Blob([textContent], { type: 'text/plain' });
+    // Create a Blob containing the XML content
+    const blob = new Blob([xmlString], { type: 'application/xml' });
 
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'form_data.txt';
-      document.body.appendChild(link);
-      link.click();
+    // Trigger the download of the XML file
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'form_data.xml';
+    document.body.appendChild(link);
+    link.click();
 
       
       this.router.navigate(['/formulaire']);
@@ -42,5 +46,16 @@ import { AuthService } from '../services/auth.service';
       
       console.log('Form submitted!');
       
+    }
+    objectToXml(obj: { [key: string]: string }): string {
+      let xmlString = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xmlString += '<form_data>\n';
+  
+      for (const [key, value] of Object.entries(obj)) {
+        xmlString += `<${key}>${value}</${key}>\n`;
+      }
+  
+      xmlString += '</form_data>';
+      return xmlString;
     }
   }
