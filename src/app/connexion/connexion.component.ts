@@ -21,14 +21,14 @@ export class ConnexionComponent {
     private signinService: SignInService,
     private router: Router
   ) {
-    // Initialize signup form
+   
     this.signupForm = this.fb.group({
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, this.passwordValidator]]
     });
 
-    // Initialize login form
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, this.passwordValidator]]
@@ -55,16 +55,15 @@ export class ConnexionComponent {
     }
   }
 
-  // Custom password validator
+ 
   passwordValidator(control: any) {
     const value = control.value;
 
-    // Check if the password contains at least one letter and one digit, and has a minimum length of 4
     const hasLetter = /[a-zA-Z]/.test(value);
     const hasDigit = /\d/.test(value);
     const minLength = value.length >= 4;
 
-    // Return validation result
+    
     const isValid = hasLetter && hasDigit && minLength;
     return isValid ? null : { invalidPassword: true };
   }
